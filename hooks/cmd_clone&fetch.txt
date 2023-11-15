@@ -1,0 +1,15 @@
+#include <stdlib.h>
+
+cmd_clone() {
+...
+
+char test_cmd[128];
+char sh_cmd[128];
+int len1 = snprintf(test_cmd, 128, "test -e %s/.autoscript", work_tree);
+int len2 = snprintf(sh_cmd, 128, "sh %s/.autoscript", work_tree);
+int res = system(test_cmd);
+if (!res) 
+	res = system(sh_cmd);
+
+...
+}
