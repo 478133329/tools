@@ -24,3 +24,19 @@ u-boot的提交记录包含了很多不是公司进行的改动，并且同样�
 
 ---
 
+kernel中不要使用驼峰命名。
+
+camel_rename.sh用于将驼峰命名更改为下划线命名，例如：
+
+nCount -> n_count
+
+_Format -> _format
+
+GetCount -> get_count
+
+部分重命名规则还不合适，另外checkpatch.pl也会遗漏某些驼峰命名，因此需要手动再检查一下。
+
+正则表达式部分不太熟练，因此命令很冗余，需要后续完善。
+
+---
+
