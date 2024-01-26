@@ -1,0 +1,3 @@
+[submodule "cvitek"]
+	path = cvitek
+	url = git@github.com:478133329/cvitek.git
