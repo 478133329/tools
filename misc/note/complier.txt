@@ -1,0 +1,29 @@
+编译器
+
+./riscv64-unknown-linux-gnu-gcc -dM -E - < /dev/null | grep LP
+#define __LP64__ 1
+
+
+./gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc -dM -E - < /dev/null | grep LP
+#define __LP64__ 1
+
+
+./gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -dM -E - < /dev/null | grep LP
+(none)
+
+
+
+linux
+
+linux/types.h
+
+#ifdef CONFIG_PHYS_ADDR_T_64BIT
+typedef u64 phys_addr_t;
+#else
+typedef u32 phys_addr_t;
+#endif
+
+linxu/arch/arm/include/asm/memory.h
+linxu/arch/arm64/include/asm/memory.h
+
+static inline phys_addr_t virt_to_phys(const volatile void *x)
